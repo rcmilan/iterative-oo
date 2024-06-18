@@ -49,6 +49,19 @@
                 foreach (var existing in combinableWith)
                 {
                     combiningExpressionsQueue.Enqueue(currentExpression.CombineWith(existing, '+', currentExpression.Value + existing.Value));
+                    combiningExpressionsQueue.Enqueue(currentExpression.CombineWith(existing, '-', currentExpression.Value - existing.Value));
+                    combiningExpressionsQueue.Enqueue(existing.CombineWith(currentExpression, '-', existing.Value - currentExpression.Value));
+                    combiningExpressionsQueue.Enqueue(currentExpression.CombineWith(existing, '*', currentExpression.Value * existing.Value));
+
+                    if(existing.Value != 0 && currentExpression.Value % existing.Value == 0)
+                    {
+                        combiningExpressionsQueue.Enqueue(currentExpression.CombineWith(existing, '/', currentExpression.Value / existing.Value));
+                    }
+
+                    if (currentExpression.Value != 0 && existing.Value % currentExpression.Value == 0)
+                    {
+                        combiningExpressionsQueue.Enqueue(existing.CombineWith(currentExpression, '/', existing.Value / currentExpression.Value));
+                    }
                 }
 
                 knownExpressions.Add(currentExpression);
