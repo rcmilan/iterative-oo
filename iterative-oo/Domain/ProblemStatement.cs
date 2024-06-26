@@ -1,5 +1,4 @@
-﻿
-internal class ProblemStatement
+﻿internal class ProblemStatement
 {
     private IEnumerable<int> InputNumbers;
 
