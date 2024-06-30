@@ -11,4 +11,12 @@ internal static class StringExtensions
         .Where(matches => matches.AllNonEmpty(tuple => tuple.correct))
         .Select(matches => matches.Select(tuple => tuple.value));
 
+    public static IEnumerable<int> SingleNonNegativeIntegers(this IEnumerable<string> lines)
+    {
+        return lines.Select(line => (
+            correct: int.TryParse(line, out int value) && value >= 0, value
+        )).Where(tuple => tuple.correct)
+        .Select(tuple => tuple.value);
+    }
+
 }
