@@ -2,6 +2,8 @@
 
 internal class ConsoleProblemReader
 {
+    public ConsoleInputsReader InputsReader { get; } = new ConsoleInputsReader("Input Numbers:\t");
+
     /// <summary>
     /// Retorna uma sequência de inteiros não negativos lidos da entrada padrão (Console.In) após exibir um prompt.
     /// </summary>
@@ -17,13 +19,8 @@ internal class ConsoleProblemReader
     /// <summary>
     /// Retorna uma sequência de sequências de inteiros não negativos lidos da entrada padrão após exibir um prompt.
     /// </summary>
-    private IEnumerable<IEnumerable<int>> InputNumberSequences =>
-        Console.In.IncomingLines(PromptInputNumbers).NonNegativeIntegerSequences();
+    private IEnumerable<IEnumerable<int>> InputNumberSequences => this.InputsReader.ReadAll();
 
-    /// <summary>
-    /// Exibe o prompt para entrada de números.
-    /// </summary>
-    private void PromptInputNumbers() => Console.Write("Input Numbers:\t");
 
     /// <summary>
     /// Exibe o prompt para entrada do resultado desejado.

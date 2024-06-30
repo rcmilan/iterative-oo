@@ -1,7 +1,7 @@
 ﻿internal class ProblemStatement
 {
-    private readonly IEnumerable<int> InputNumbers;
-    private readonly int DesiredResult;
+    public readonly IEnumerable<int> InputNumbers;
+    public readonly int DesiredResult;
 
     /// <summary>
     /// Inicializa uma nova instância da classe ProblemStatement com os números de entrada e o resultado desejado.
