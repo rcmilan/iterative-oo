@@ -2,17 +2,38 @@
 
 internal class ConsoleProblemReader
 {
-    private IEnumerable<int> DesiredResults => Console.In.IncomingLines(this.PromptDesiredResult).SingleNonNegativeIntegers();
+    /// <summary>
+    /// Retorna uma sequência de inteiros não negativos lidos da entrada padrão (Console.In) após exibir um prompt.
+    /// </summary>
+    private IEnumerable<int> DesiredResults =>
+        Console.In.IncomingLines(PromptDesiredResult).SingleNonNegativeIntegers();
 
+    /// <summary>
+    /// Retorna uma sequência de tuplas contendo uma sequência de inteiros de entrada e um resultado.
+    /// </summary>
     private IEnumerable<(IEnumerable<int> inputs, int result)> RawNumbersSequence =>
-        this.InputNumberSequences.Zip(this.DesiredResults, (IEnumerable<int> inputs, int result) => (inputs, result));
+        this.InputNumberSequences.Zip(DesiredResults, (IEnumerable<int> inputs, int result) => (inputs, result));
 
+    /// <summary>
+    /// Retorna uma sequência de sequências de inteiros não negativos lidos da entrada padrão após exibir um prompt.
+    /// </summary>
     private IEnumerable<IEnumerable<int>> InputNumberSequences =>
         Console.In.IncomingLines(PromptInputNumbers).NonNegativeIntegerSequences();
 
+    /// <summary>
+    /// Exibe o prompt para entrada de números.
+    /// </summary>
     private void PromptInputNumbers() => Console.Write("Input Numbers:\t");
 
+    /// <summary>
+    /// Exibe o prompt para entrada do resultado desejado.
+    /// </summary>
     private void PromptDesiredResult() => Console.Write("Input Desired Result:\t");
 
-    internal IEnumerable<ProblemStatement> ReadAll() => RawNumbersSequence.Select(tuple => new ProblemStatement(tuple.inputs, tuple.result));
+    /// <summary>
+    /// Lê todas as entradas e retorna uma sequência de declarações de problema.
+    /// </summary>
+    /// <returns>Uma sequência de objetos ProblemStatement.</returns>
+    internal IEnumerable<ProblemStatement> ReadAll() =>
+        RawNumbersSequence.Select(tuple => new ProblemStatement(tuple.inputs, tuple.result));
 }
