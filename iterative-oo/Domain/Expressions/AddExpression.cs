@@ -1,32 +1,8 @@
 ﻿namespace iterative_oo.Domain.Expressions;
 
-/// <summary>
-/// Representa uma expressão de adição.
-/// </summary>
-internal class AddExpression : Expression
+internal class AddExpression(Expression left, Expression right) : BinaryExpression(left, right)
 {
-    private readonly Expression Left;
-    private readonly Expression Right;
+    protected override string OperatorToString => "+";
 
-    /// <summary>
-    /// Inicializa uma nova instância da classe <see cref="AddExpression"/> com as expressões da esquerda e da direita.
-    /// </summary>
-    /// <param name="left">A expressão à esquerda do operador de adição.</param>
-    /// <param name="right">A expressão à direita do operador de adição.</param>
-    public AddExpression(Expression left, Expression right)
-    {
-        Left = left;
-        Right = right;
-    }
-
-    /// <summary>
-    /// Obtém o valor da expressão de adição. A soma dos valores das expressões da esquerda e da direita.
-    /// </summary>
-    public override int Value => Left.Value + Right.Value;
-
-    /// <summary>
-    /// Retorna uma representação em string da expressão de adição.
-    /// </summary>
-    /// <returns>Uma string que representa a expressão de adição.</returns>
-    public override string? ToString() => $"{Left} + {Right}";
+    protected override int Combine(int left, int right) => left + right;
 }

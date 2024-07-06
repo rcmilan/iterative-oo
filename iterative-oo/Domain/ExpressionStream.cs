@@ -6,10 +6,15 @@ namespace iterative_oo.Domain;
 internal class ExpressionStream
 {
     internal IEnumerable<Expression> DistinctFor(IEnumerable<int> inputNumbers) =>
-        inputNumbers.IsEmpty() ? Enumerable.Empty<Expression>()
-        : [Add(inputNumbers)];
+        inputNumbers.Select(n => new Literal(n))
+        .AsPartition()
+        .Split()
+        .Where(split => split.left.Any())
+        .Select(split => CreateAdditive(split.left.First(), split.left.Skip(1).AsPartition(), split.right));
 
-    internal Expression Add(IEnumerable<int> numbers) =>
-        numbers.Select<int, Expression>(n => new Literal(n))
-            .Aggregate((left, next) => new AddExpression(left, next));
+    private Expression CreateAdditive(Literal head, IEnumerable<Literal> add, IEnumerable<Literal> subtract)
+    {
+        return head.Add(add).Subtract(subtract);
+    }
+
 }

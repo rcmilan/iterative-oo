@@ -1,5 +1,8 @@
 ﻿namespace iterative_oo.Common;
 
+/// <summary>
+/// Métodos de extensão para operações em coleções enumeráveis.
+/// </summary>
 internal static class EnumerableExtensions
 {
     /// <summary>
@@ -48,4 +51,12 @@ internal static class EnumerableExtensions
     /// <param name="sequence">A sequência de elementos a ser verificada.</param>
     /// <returns>True se a sequência estiver vazia; caso contrário, False.</returns>
     public static bool IsEmpty<T>(this IEnumerable<T> sequence) => !sequence.Any();
+
+    /// <summary>
+    /// Converte a sequência em um objeto do tipo Partition.
+    /// </summary>
+    /// <typeparam name="T">O tipo dos elementos na sequência.</typeparam>
+    /// <param name="sequence">A sequência de elementos a ser convertida.</param>
+    /// <returns>Um objeto Partition que encapsula a sequência.</returns>
+    public static Partition<T> AsPartition<T>(this IEnumerable<T> sequence) => new(sequence);
 }

@@ -2,13 +2,15 @@
 
 internal static class StringExtensions
 {
+    internal static readonly char[] separators = [' ', '\t'];
+
     /// <summary>
     /// Retorna uma sequência de sequências de inteiros não negativos a partir de uma sequência de strings.
     /// </summary>
     /// <param name="lines">A sequência de strings contendo os números.</param>
     /// <returns>Uma sequência de sequências de inteiros não negativos.</returns>
     public static IEnumerable<IEnumerable<int>> NonNegativeIntegerSequences(this IEnumerable<string> lines) =>
-        lines.Select(line => line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries))
+        lines.Select(line => line.Split(separators, StringSplitOptions.RemoveEmptyEntries))
              .Select(stretches => stretches.Select(stretch =>
              (
                  correct: int.TryParse(stretch, out int value) && value >= 0, value
