@@ -5,11 +5,6 @@
 /// </summary>
 internal class AddExpression : Expression
 {
-    /// <summary>
-    /// Obtém o valor da expressão de adição. A soma dos valores das expressões da esquerda e da direita.
-    /// </summary>
-    public override int Value => Left.Value + Right.Value;
-
     private readonly Expression Left;
     private readonly Expression Right;
 
@@ -25,7 +20,12 @@ internal class AddExpression : Expression
     }
 
     /// <summary>
-    /// Retorna uma string que representa a expressão de adição.
+    /// Obtém o valor da expressão de adição. A soma dos valores das expressões da esquerda e da direita.
+    /// </summary>
+    public override int Value => Left.Value + Right.Value;
+
+    /// <summary>
+    /// Retorna uma representação em string da expressão de adição.
     /// </summary>
     /// <returns>Uma string que representa a expressão de adição.</returns>
     public override string? ToString() => $"{Left} + {Right}";

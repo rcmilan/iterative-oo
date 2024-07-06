@@ -6,7 +6,7 @@
 internal class ExactSolver
 {
     /// <summary>
-    /// Retorna uma sequência de expressões distintas para a declaração do problema que possuem o valor desejado.
+    /// Retorna uma sequência de expressões distintas que correspondem ao resultado desejado para a declaração do problema.
     /// </summary>
     /// <param name="problem">A declaração do problema contendo os números de entrada e o resultado desejado.</param>
     /// <returns>Uma sequência de expressões que possuem o valor desejado.</returns>

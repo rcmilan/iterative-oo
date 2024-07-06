@@ -18,12 +18,12 @@ internal class ConsoleProblemReader
     /// Retorna uma sequência de tuplas contendo uma sequência de inteiros de entrada e um resultado.
     /// </summary>
     private IEnumerable<(IEnumerable<int> inputs, int result)> RawNumbersSequence =>
-        this.InputNumberSequences.Zip(DesiredResults, (IEnumerable<int> inputs, int result) => (inputs, result));
+        InputNumberSequences.Zip(DesiredResults, (inputs, result) => (inputs, result));
 
     /// <summary>
     /// Retorna uma sequência de sequências de inteiros não negativos lidos da entrada padrão após exibir um prompt.
     /// </summary>
-    private IEnumerable<IEnumerable<int>> InputNumberSequences => this.InputsReader.ReadAll();
+    private IEnumerable<IEnumerable<int>> InputNumberSequences => InputsReader.ReadAll();
 
     /// <summary>
     /// Exibe o prompt para entrada do resultado desejado.

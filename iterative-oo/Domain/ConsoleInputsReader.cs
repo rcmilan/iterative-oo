@@ -15,15 +15,15 @@ internal class ConsoleInputsReader
     /// <param name="label">O rótulo a ser exibido como prompt.</param>
     public ConsoleInputsReader(string label)
     {
-        this.PromptLabel = label;
+        PromptLabel = label;
     }
 
     /// <summary>
-    /// Lê todas as entradas e retorna uma sequência de sequências de números inteiros não negativos.
+    /// Lê todas as entradas da entrada padrão e retorna uma sequência de sequências de números inteiros não negativos.
     /// </summary>
     /// <returns>Uma sequência de sequências de números inteiros não negativos.</returns>
     internal IEnumerable<IEnumerable<int>> ReadAll() =>
-        Console.In.IncomingLines(this.Prompt).NonNegativeIntegerSequences();
+        Console.In.IncomingLines(Prompt).NonNegativeIntegerSequences();
 
     /// <summary>
     /// Exibe o prompt para entrada de números.
