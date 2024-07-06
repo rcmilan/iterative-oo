@@ -4,17 +4,24 @@ internal class ConsoleInputsReader
 {
     private readonly string PromptLabel;
 
+    /// <summary>
+    /// Inicializa uma nova instância da classe <see cref="ConsoleInputsReader"/> com o rótulo padrão "Input Numbers: ".
+    /// </summary>
     public ConsoleInputsReader() : this("Input Numbers: ") { }
 
+    /// <summary>
+    /// Inicializa uma nova instância da classe <see cref="ConsoleInputsReader"/> com o rótulo especificado.
+    /// </summary>
+    /// <param name="label">O rótulo a ser exibido como prompt.</param>
     public ConsoleInputsReader(string label)
     {
         this.PromptLabel = label;
     }
 
     /// <summary>
-    /// Lê todas as entradas e retorna uma sequência de declarações de problema.
+    /// Lê todas as entradas e retorna uma sequência de sequências de números inteiros não negativos.
     /// </summary>
-    /// <returns>Uma sequência de objetos ProblemStatement.</returns>
+    /// <returns>Uma sequência de sequências de números inteiros não negativos.</returns>
     internal IEnumerable<IEnumerable<int>> ReadAll() =>
         Console.In.IncomingLines(this.Prompt).NonNegativeIntegerSequences();
 

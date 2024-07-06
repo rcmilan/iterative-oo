@@ -1,6 +1,12 @@
 ﻿namespace iterative_oo.Domain;
 
-internal class Expression
+/// <summary>
+/// Representa uma expressão abstrata que pode ser avaliada para obter um valor inteiro.
+/// </summary>
+internal abstract class Expression
 {
-    public int Value { get; } = 0;
+    /// <summary>
+    /// Obtém o valor resultante da expressão.
+    /// </summary>
+    public abstract int Value { get; }
 }

@@ -1,10 +1,19 @@
-﻿internal class ProblemStatement
+﻿namespace iterative_oo.Domain;
+
+internal class ProblemStatement
 {
+    /// <summary>
+    /// A sequência de números de entrada.
+    /// </summary>
     public readonly IEnumerable<int> InputNumbers;
+
+    /// <summary>
+    /// O resultado desejado.
+    /// </summary>
     public readonly int DesiredResult;
 
     /// <summary>
-    /// Inicializa uma nova instância da classe ProblemStatement com os números de entrada e o resultado desejado.
+    /// Inicializa uma nova instância da classe <see cref="ProblemStatement"/> com os números de entrada e o resultado desejado.
     /// </summary>
     /// <param name="input">A sequência de números de entrada.</param>
     /// <param name="desiredResult">O resultado desejado.</param>

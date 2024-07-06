@@ -1,7 +1,11 @@
 ﻿using iterative_oo.Common;
+using iterative_oo.Domain;
 
 internal class ConsoleProblemReader
 {
+    /// <summary>
+    /// Obtém o leitor de entradas do console.
+    /// </summary>
     public ConsoleInputsReader InputsReader { get; } = new ConsoleInputsReader("Input Numbers:\t");
 
     /// <summary>
@@ -20,7 +24,6 @@ internal class ConsoleProblemReader
     /// Retorna uma sequência de sequências de inteiros não negativos lidos da entrada padrão após exibir um prompt.
     /// </summary>
     private IEnumerable<IEnumerable<int>> InputNumberSequences => this.InputsReader.ReadAll();
-
 
     /// <summary>
     /// Exibe o prompt para entrada do resultado desejado.
