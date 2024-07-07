@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iterative-oo", "iterative-oo\iterative-oo.csproj", "{83B836A9-E6F6-4FCB-84A9-3C700536EDE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iterative-oo", "iterative-oo\iterative-oo.csproj", "{83B836A9-E6F6-4FCB-84A9-3C700536EDE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extras", "Extras", "{83AD9346-8802-480E-9F77-C22A7B6C0105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iterative-oo-benchmarks", "extras\iterative-oo-benchmarks\iterative-oo-benchmarks.csproj", "{55C46E39-B0D7-4C18-A1AD-5DE4F8F9E6C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{83B836A9-E6F6-4FCB-84A9-3C700536EDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83B836A9-E6F6-4FCB-84A9-3C700536EDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83B836A9-E6F6-4FCB-84A9-3C700536EDE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C46E39-B0D7-4C18-A1AD-5DE4F8F9E6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C46E39-B0D7-4C18-A1AD-5DE4F8F9E6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C46E39-B0D7-4C18-A1AD-5DE4F8F9E6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C46E39-B0D7-4C18-A1AD-5DE4F8F9E6C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55C46E39-B0D7-4C18-A1AD-5DE4F8F9E6C4} = {83AD9346-8802-480E-9F77-C22A7B6C0105}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECDA66B7-C2CE-42AD-A513-707D0A5ABB5A}
