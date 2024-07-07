@@ -7,7 +7,7 @@
 /// Inicializa uma nova instância da classe <see cref="Literal"/> com o valor especificado.
 /// </remarks>
 /// <param name="value">O valor literal da expressão.</param>
-internal class Literal(int value) : Expression
+public class Literal(int value) : Expression
 {
     /// <summary>
     /// Obtém o valor literal da expressão.

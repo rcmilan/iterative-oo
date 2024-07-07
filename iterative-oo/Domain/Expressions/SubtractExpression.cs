@@ -1,6 +1,6 @@
 ﻿namespace iterative_oo.Domain.Expressions;
 
-internal class SubtractExpression(Expression left, Expression right) : BinaryExpression(left, right)
+public class SubtractExpression(Expression left, Expression right) : BinaryExpression(left, right)
 {
     protected override string OperatorToString => "-";
 

@@ -1,8 +1,8 @@
 ﻿namespace iterative_oo.Common;
 
-internal static class StringExtensions
+public static class StringExtensions
 {
-    internal static readonly char[] separators = [' ', '\t'];
+    public static readonly char[] separators = [' ', '\t'];
 
     /// <summary>
     /// Retorna uma sequência de sequências de inteiros não negativos a partir de uma sequência de strings.

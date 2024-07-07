@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="left">Expressão à esquerda da operação binária.</param>
 /// <param name="right">Expressão à direita da operação binária.</param>
-internal abstract class BinaryExpression(Expression left, Expression right) : Expression
+public abstract class BinaryExpression(Expression left, Expression right) : Expression
 {
 
     /// <summary>

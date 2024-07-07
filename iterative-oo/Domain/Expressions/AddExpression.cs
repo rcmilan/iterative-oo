@@ -1,6 +1,6 @@
 ﻿namespace iterative_oo.Domain.Expressions;
 
-internal class AddExpression(Expression left, Expression right) : BinaryExpression(left, right)
+public class AddExpression(Expression left, Expression right) : BinaryExpression(left, right)
 {
     protected override string OperatorToString => "+";
 

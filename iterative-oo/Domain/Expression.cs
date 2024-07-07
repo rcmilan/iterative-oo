@@ -3,7 +3,7 @@
 /// <summary>
 /// Representa uma expressão abstrata que pode ser avaliada para obter um valor inteiro.
 /// </summary>
-internal abstract class Expression
+public abstract class Expression
 {
     /// <summary>
     /// Obtém o valor resultante da expressão.

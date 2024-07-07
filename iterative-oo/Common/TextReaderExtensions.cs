@@ -1,6 +1,6 @@
 ﻿namespace iterative_oo.Common;
 
-internal static class TextReaderExtensions
+public static class TextReaderExtensions
 {
     /// <summary>
     /// Retorna uma sequência de linhas de entrada até encontrar uma linha nula.

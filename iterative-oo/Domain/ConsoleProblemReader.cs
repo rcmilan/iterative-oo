@@ -1,7 +1,8 @@
 ﻿using iterative_oo.Common;
-using iterative_oo.Domain;
 
-internal class ConsoleProblemReader
+namespace iterative_oo.Domain;
+
+public class ConsoleProblemReader
 {
     /// <summary>
     /// Obtém o leitor de entradas do console.
@@ -34,6 +35,6 @@ internal class ConsoleProblemReader
     /// Lê todas as entradas e retorna uma sequência de declarações de problema.
     /// </summary>
     /// <returns>Uma sequência de objetos ProblemStatement.</returns>
-    internal IEnumerable<ProblemStatement> ReadAll() =>
+    public IEnumerable<ProblemStatement> ReadAll() =>
         RawNumbersSequence.Select(tuple => new ProblemStatement(tuple.inputs, tuple.result));
 }

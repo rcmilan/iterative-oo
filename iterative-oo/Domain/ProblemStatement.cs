@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="input">A sequência de números de entrada.</param>
 /// <param name="desiredResult">O resultado desejado.</param>
-internal class ProblemStatement(IEnumerable<int> input, int desiredResult)
+public class ProblemStatement(IEnumerable<int> input, int desiredResult)
 {
     /// <summary>
     /// A sequência de números de entrada.

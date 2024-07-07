@@ -3,7 +3,7 @@
 /// <summary>
 /// Métodos de extensão para operações em coleções enumeráveis.
 /// </summary>
-internal static class EnumerableExtensions
+public static class EnumerableExtensions
 {
     /// <summary>
     /// Escreve cada elemento da sequência no destino TextWriter, convertendo-o para string.
@@ -59,4 +59,55 @@ internal static class EnumerableExtensions
     /// <param name="sequence">A sequência de elementos a ser convertida.</param>
     /// <returns>Um objeto Partition que encapsula a sequência.</returns>
     public static Partition<T> AsPartition<T>(this IEnumerable<T> sequence) => new(sequence);
+
+    /// <summary>
+    /// Extrai o último elemento da sequência, retornando a sequência sem o último elemento e o último elemento.
+    /// </summary>
+    /// <typeparam name="T">O tipo dos elementos na sequência.</typeparam>
+    /// <param name="sequence">A sequência de elementos.</param>
+    /// <returns>Um tupla contendo a sequência sem o último elemento e o último elemento.</returns>
+    public static (IEnumerable<T> prefix, T last) ExtractLast<T>(this IEnumerable<T> sequence)
+    {
+        var prefix = new List<T>();
+
+        using IEnumerator<T> enumerator = sequence.GetEnumerator();
+
+        enumerator.MoveNext();
+        T last = enumerator.Current;
+
+        while (enumerator.MoveNext())
+        {
+            prefix.Add(last);
+            last = enumerator.Current;
+        }
+
+        return (prefix, last);
+    }
+
+    /// <summary>
+    /// Calcula o produto cartesiano de uma sequência de sequências.
+    /// </summary>
+    /// <typeparam name="T">O tipo dos elementos nas sequências.</typeparam>
+    /// <param name="sequenceOfSequences">A sequência de sequências para calcular o produto cartesiano.</param>
+    /// <returns>Uma sequência de sequências representando o produto cartesiano.</returns>
+    public static IEnumerable<IEnumerable<T>> CrossProduct<T>(this IEnumerable<IEnumerable<T>> sequenceOfSequences)
+    {
+        T[][] data = sequenceOfSequences.Select(sequence => sequence.ToArray()).ToArray();
+        int[] indices = new int[data.Length];
+        int carryOver = 0;
+
+        while (carryOver == 0)
+        {
+            yield return indices.Select((column, row) => data[row][column]).ToList();
+
+            carryOver = 1;
+
+            for (int row = 0; carryOver > 0 && row < indices.Length; row++)
+            {
+                indices[row] += 1;
+                carryOver = indices[row] / data[row].Length;
+                indices[row] = indices[row] % data[row].Length;
+            }
+        }
+    }
 }
